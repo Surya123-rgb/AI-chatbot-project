@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presidency University Chatbot</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #5795d7, #8c39e5);
+            color: rgb(14, 12, 12);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Faded background image */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://presidencyuniversity.in/uploads/home/banner_images/6720b3bbe86361730196411.jpg') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.3; /* Adjust opacity to control the fade */
+            z-index: -1; /* Put the image behind all content */
+        }
+
+        header {
+            width: 100%;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            display: none; /* Hide header content */
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        main h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        main p {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #ddd;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background: #ffffff;
+            color: #007BFF;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        button:hover {
+            background: #0056b3;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Removed the header content as requested -->
+    </header>
+
+    <main>
+        <h2>Welcome to Presidency University</h2>
+        <p>Ask our chatbot anything about admissions, programs, or campus life.</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Presidency University. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Botpress Scripts -->
+    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2024/10/20/06/20241020063054-R44FUYQF.js"></script>
+
+    <script>
+        // Initialize the Botpress chatbot
+        window.botpressWebChat.init({
+            hostUrl: 'https://cdn.botpress.cloud',
+            botId: 'your-bot-id', // Replace with your actual Botpress bot ID
+            enableConversationHistory: true,
+            showPoweredBy: false
+        });
+
+        // Function to open the chatbot when "Start Chat" is clicked
+        function startChat() {
+            window.botpressWebChat.sendEvent({ type: 'show' });
+        }
+    </script>
+</body>
+</html>

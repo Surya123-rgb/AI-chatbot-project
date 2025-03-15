@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Chatbot - Login</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: url('https://college4u.in/wp-content/uploads/2018/04/pres-1024x398.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            font-size: 0.9rem;
+            text-align: left;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input {
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .password-container {
+            width: 100%;
+            text-align: left;
+        }
+
+        .password-field {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        .password-field input {
+            flex: 1;
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+
+        .password-field input:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .toggle-password {
+            margin-left: 10px;
+            font-size: 0.9rem;
+            color: #007bff;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .toggle-password:hover {
+            color: #0056b3;
+        }
+
+        button {
+            padding: 12px;
+            font-size: 1rem;
+            background: linear-gradient(135deg, #6a11cb, #007bff);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #5b0ead, #0056b3);
+        }
+
+        .links {
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s;
+        }
+
+        .links a:hover {
+            color: #0056b3;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .remember-me input {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>University Chatbot Login</h2>
+        <form id="login-form">
+            <label for="roll-number">Roll Number</label>
+            <input type="text" id="roll-number" placeholder="Enter your roll number" required>
+
+            <label for="password">Password</label>
+            <div class="password-field">
+                <input type="password" id="password" placeholder="Enter your password" required>
+                <span class="toggle-password" onclick="togglePassword()">Show</span>
+            </div>
+
+           
+
+            <button type="submit">Login</button>
+            <div class="links">
+                <a href="#">Forgot Password?</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('login-form');
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const rollNumber = document.getElementById('roll-number').value;
+            const password = document.getElementById('password').value;
+
+            // Validate roll number format
+            const rollNumberPattern = /^(20211|20221|20231|20241)(csd|csg|cst|cse|cai|lsd|lsg|lst|irs|ist)\d{4}$/i;
+
+            if (!rollNumberPattern.test(rollNumber)) {
+                alert('Invalid roll number format. Please check and try again.');
+                return;
+            }
+
+            // Validate password
+            if (password !== 'pu@123') {
+                alert('Invalid password. Please enter the correct password.');
+                return;
+            }
+
+            // Redirect to the homepage
+            window.location.href = 'homepage3.html';
+        });
+
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggle = document.querySelector('.toggle-password');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggle.textContent = 'Hide';
+            } else {
+                passwordInput.type = 'password';
+                toggle.textContent = 'Show';
+            }
+        }
+    </script>
+</body>
+</html>
